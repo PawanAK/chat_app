@@ -1,14 +1,19 @@
 import { ChatEngine } from "react-chat-engine";
 import "./App.css";
+import ChatFeed from "./components/ChatFeed";
 
 function App() {
   return (
     <div className="App">
       <ChatEngine
         height="100vh"
-        projectionId="3f27fb3c-1e49-46f4-a609-27fe2c285220"
+        projectID="3f27fb3c-1e49-46f4-a609-27fe2c285220"
         userName="john"
-        userSecret="111"
+        userSecret="john"
+        renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+        onNewMessage={() =>
+          new Audio("https://chat-engin-assets.s3.amazonaws.com/click.mp3")
+        }
       />
     </div>
   );
